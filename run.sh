@@ -23,10 +23,12 @@ if [ "$mode" = "bash" ]; then
   tailCmd="-it --entrypoint /bin/bash $imageFullPath"
 fi
 
+phpIniFile="$tag.ini"
+
 cmd="sudo docker run --name $container
--v $PWD/$tag/test_www:/var/www/html
--v $PWD/$tag/test_conf/php.ini:/usr/local/etc/php/php.ini
--p 8081:80
+-v $PWD/run/www:/var/www/html
+-v $PWD/run/conf/$phpIniFile:/usr/local/etc/php/php.ini
+-p 80
 -e RUN_UID=501 -e RUN_GID=20
 $tailCmd
 "
