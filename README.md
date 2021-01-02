@@ -21,17 +21,14 @@
 
 ### 2.1 源码结构
 
+```
 php7 构建 PHP 7 镜像源文件
-
 phpXXX 构建 PHP 其它版本镜像源文件
-
 php_base 构建镜像的基础或公共源文件
-
 run 运行镜像容器的环境文件
-
 build.sh 构建镜像的脚本
-
 run.sh 运行镜像容器的脚本
+```
 
 ### 2.2 开发流程
 
@@ -39,7 +36,9 @@ run.sh 运行镜像容器的脚本
 
 2. 构建镜像脚本
 
+```
 % ./build.sh php8
+```
 
 若某语句出错，只构建镜像到报错语句前。通过下文的调试模式，进行调试。
 
@@ -47,11 +46,15 @@ run.sh 运行镜像容器的脚本
 
 正常启动 apache 的模式
 
+```
 % ./run.sh php8 apache
+```
 
 进入 bash 用于调试的模块
 
+```
 % ./run.sh php8 bash
+```
 
 4. 测试镜像
 
@@ -63,10 +66,14 @@ run.sh 运行镜像容器的脚本
 
 bash 交互
 
+```
 % sudo docker exec -ti CONTAINER /bin/bash
+```
 
 5. 发布镜像
 
-待补充 @TODO
+默认远程仓库：https://hub.docker.com/r/xingchaovv/apache-php-docker
 
-% sudo docker push xxx/apd
+```
+% sudo docker push xingchaovv/apache-php-docker:php7
+```
